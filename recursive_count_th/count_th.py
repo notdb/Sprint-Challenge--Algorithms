@@ -11,13 +11,17 @@ def count_th(word):
     if len(word) == 0:
         return 0
 
-    foo = word.find('th')
+    foo = word.find("th")
     if foo == 0:
-       
-        print(foo)
         return count_th(word[2:])
     else:
-        return count_th(word[foo:])
+        
+        return count_th(word[foo:])+1
    
-count_th('abcthefthghith')
+   
+print(count_th("arthgyleth"))
     
+def testFind(word):
+   print(word.find("h"))
+
+#testFind('HHHHh')
