@@ -19,5 +19,17 @@
                 SortingRobot.move_right(self)
                 print(SortingRobot.light_is_on(self))
 
+
         while SortingRobot.can_move_left(self) == True:
             SortingRobot.move_left(self)
+
+
+
+
+             else:
+                SortingRobot.swap_item(self)
+                SortingRobot.set_light_on(self)
+                SortingRobot.move_right(self)
+                SortingRobot.swap_item(self)
+                SortingRobot.move_left(self)
+                SortingRobot.swap_item(self)

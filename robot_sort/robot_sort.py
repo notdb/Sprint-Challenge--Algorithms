@@ -97,7 +97,7 @@ class SortingRobot:
         Sort the robot's list.
         """
         print(len(l))
-        for x in range(0,2):
+        for x in range(0,100):
             while SortingRobot.can_move_right(self) == True:
                 SortingRobot.swap_item(self)
                 SortingRobot.move_right(self)
@@ -105,7 +105,7 @@ class SortingRobot:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
                     SortingRobot.move_right(self)
-                    SortingRobot.move_right(self)
+                   # SortingRobot.move_right(self)
                     #print(SortingRobot.light_is_on(self))
                 else:
                     SortingRobot.swap_item(self)

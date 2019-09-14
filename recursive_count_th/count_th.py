@@ -8,18 +8,22 @@ Your function must utilize recursion. It cannot contain any loops.
 counter = 0
 stored_word = 'arthgyleth'
 def count_th(word):
-    if len(word) == 0:
+    if len(word) < 2:
         return 0
 
     foo = word.find("th")
-    if foo == 0:
-        return count_th(word[2:])
+    if word[0] == 't' and word[1] == 'h':
+        return count_th(word[2:])+1
     else:
+        return count_th(word[1:])
+    #if foo == 0:
+     #   return count_th(word[2:])
+   # else:
         
-        return count_th(word[foo:])+1
+    #    return count_th(word[foo:])+1
    
    
-print(count_th("arthgyleth"))
+#print(count_th("abcthxyzht"))
     
 def testFind(word):
    print(word.find("h"))
