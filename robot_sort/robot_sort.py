@@ -1,5 +1,3 @@
-# Basically we can do this using a bubble sort. There's probably other sorts that are better but it's the only one I can actually implement. Basically the robot will start at the left end of the list. We can use it's movement to move up and down the list. It'll pick up the first block "compare" it to the item thats in front of it. This part is ambiguous because we don't know what infront means. It implies that if a robot picks up an item there'll be a new item in front of it, which would either shift the list left or right, or the robot would have to move left or right. I'm assuming the robot will move to the right. Then we compare the two items, if they're in the wrong order, swap them, and turn on the robots light. The robot starts with it's light off. Continue down the list until the robot starts at the beginning of the list and goes to the end without it's light on. We don't need to toggle the light on and off because if a single element at all was swapped it means the list wasn't in order. 
-
 class SortingRobot:
     def __init__(self, l):
         """
@@ -98,8 +96,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        print(len(l))
+        for x in range(0,2):
+            while SortingRobot.can_move_right(self) == True:
+                SortingRobot.swap_item(self)
+                SortingRobot.move_right(self)
+                if SortingRobot.compare_item(self) == -1:
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
+                    SortingRobot.move_right(self)
+                    #print(SortingRobot.light_is_on(self))
+                else:
+                    SortingRobot.swap_item(self)
+                    SortingRobot.set_light_on(self)
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
+               
+                    #print(SortingRobot.light_is_on(self))
+                    SortingRobot.set_light_on(self)
+            while SortingRobot.can_move_left(self) == True:
+                SortingRobot.move_left(self)
+                print(SortingRobot.light_is_on(self))
+            #SortingRobot.swap_item(self)
         pass
+
+        
 
 
 if __name__ == "__main__":
@@ -112,3 +135,5 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+    print(robot._item)
+    print(robot._position)
