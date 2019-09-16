@@ -96,8 +96,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        print(len(l))
+        for x in range(0,100):
+            while SortingRobot.can_move_right(self) == True:
+                SortingRobot.swap_item(self)
+                SortingRobot.move_right(self)
+                if SortingRobot.compare_item(self) == -1:
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
+                   # SortingRobot.move_right(self)
+                    #print(SortingRobot.light_is_on(self))
+                else:
+                    SortingRobot.swap_item(self)
+                    SortingRobot.set_light_on(self)
+                    SortingRobot.move_left(self)
+                    SortingRobot.swap_item(self)
+                    SortingRobot.move_right(self)
+               
+                    #print(SortingRobot.light_is_on(self))
+                    SortingRobot.set_light_on(self)
+            while SortingRobot.can_move_left(self) == True:
+                SortingRobot.move_left(self)
+                print(SortingRobot.light_is_on(self))
+            #SortingRobot.swap_item(self)
         pass
+
+        
 
 
 if __name__ == "__main__":
@@ -110,3 +135,5 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+    print(robot._item)
+    print(robot._position)
